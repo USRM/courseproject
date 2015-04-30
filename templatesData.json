@@ -1,0 +1,59 @@
+{
+	"templates":[
+
+	{
+	"style" : [
+	"div .user{border: 1px dashed black;height:100px;}",
+	"#header .user{height:100px;width:1100px;} ",
+	"#main .user{height:700px;width:1100px;}",
+	"#content .user{height:400px;width:1000px;}",
+	 "#footer .user{}", 	
+	 "#navigation {height:400px;width:1000px;}"] ,
+
+	"header":"<div id=\"header\"><\/div>",
+	
+	"navigation":"<ul id='navigation'><li></li><li></li></ul>",
+	
+	"main":"<div id='main'></div>",
+	
+	"footer":"<div id='footer'></div>"
+	},
+
+	{
+	"style" : ["<style>",
+	"div{border: 1px dashed black;height:100px;}",
+	"#header {height:100px;width:1100px;} ",
+	"#main {height:700px;width:1100px;}",
+	"#content {height:400px;width:1000px;}",
+	 "#footer {}", 	
+	 "#navigation {height:400px;width:1000px;}",	
+	 "</style>"],
+	
+	"header":"<div id='header'></div>",
+	
+	"navigation":"<ul id='navigation'><li></li><li></li></ul>",
+	
+	"main":"<div id='main'></div>",
+
+	"footer":"<div id='footer'></div>"
+	},
+
+	{
+	"style" : ["<style>",
+	"div{border: 1px dashed black;height:100px;}",
+	"#header {height:100px;width:1100px;} ",
+	"#main {height:700px;width:1100px;}",
+	"#content {height:400px;width:1000px;}",
+	 "#footer {}", 	
+	 "#navigation {height:400px;width:1000px;}",	
+	 "</style>"],
+
+	 "header":"<div id='header'></div>",
+	
+	"navigation":"<ul id='navigation'><li></li><li></li></ul>",
+	
+	"main":"<div id='main'></div>",
+	
+	"footer":"<div id='footer'></div>"}
+	]
+}

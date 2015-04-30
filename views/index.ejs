@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head><% include  partials/template/head.ejs %></head>
+  <body>
+  <% include partials/template/header.ejs %>
+  <div id="main">
+  	<div id="cssmenu">
+		<ul>
+   			<li><a href="/Create">Create</a></li>
+   <li class="active has-sub"><a href="#">Templates</a>
+      <ul>
+         <li class="has-sub"><a href="#">Product 1</a>
+            <ul>
+               <li><a href="#">Sub Product</a></li>
+               <li><a href="#">Sub Product</a></li>
+            </ul>
+         </li>
+         <li class="has-sub"><a href="#">Product 2</a>
+            <ul>
+               <li><a href="#">Sub Product</a></li>
+               <li><a href="#">Sub Product</a></li>
+            </ul>
+         </li>
+      </ul>
+   </li>
+   <li><a href="#">How to use</a></li>
+   <li><a href="#">About</a></li>
+</ul>
+</div>
+  	<div id="create"></div>
+  </div>
+
+  <% include partials/template/footer.ejs %>
+
+  </body>
+</html>
