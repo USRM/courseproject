@@ -18,9 +18,8 @@
 	}
 	#usermain {
 	border:1px dashed black;
-	height:400px;
 	width:990px;
-	
+	overflow:hidden;
 	background-position:center;
 	background-size:contain;
 	background-repeat: no-repeat;
@@ -79,6 +78,9 @@ h1 {
   padding-bottom: 5px;
   position: relative;
 }
+.news {
+
+}
 </style>
 <div id="userheader" onmousedown="onMouseDown(this)"></div>
 	
@@ -90,14 +92,34 @@ h1 {
 </ul>
 	
 <div id='usermain'  onmousedown="onMouseDown(this)">
-  <h1 id='userheadernews' onmousedown="onMouseDown(this)">Новини</h1>
-  <div id ='usernews' onmousedown="onMouseDown(this)" style="position:relative;"> 
-    <img onmousedown="onMouseDown(this)" style="position:relative;" src="/images/templateLNU/first.png" alt="First image"/>
-    <img onmousedown="onMouseDown(this)"  style="position:relative;" src="/images/templateLNU/second.png" alt="Second image"/>
-    <img style="position:relative;" src="/images/templateLNU/third.png" alt="Third image"/>
-    <img style="position:relative;" src="/images/templateLNU/fourth.png" alt="Fourth image"/>
-  </div>
+  
+<div style="width:300px;border: 2px solid black;float:left;" > 	
+    <h1 id='userheadernews' onmousedown="onMouseDown(this)">Новини</h1>
+</div>
+
+<div style="width:620px;border: 2px solid black;float:left;margin-left:50px">
   <h1 id='userheaderarticle' onmousedown="onMouseDown(this)">Оголошення </h1>
+  <div class="news">
+  	<h2>Новина 1</h2>
+  	<img src="/images/templateLNU/new1.png" alt="new1"/>
+  	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur venenatis gravida risus, ac sodales purus pretium ac. Sed sodales velit vitae purus eleifend, nec rutrum mi aliquet. Sed pellentesque viverra est. Integer rhoncus hendrerit odio, quis posuere neque tristique non. Quisque cursus tellus dignissim, facilisis sem ut, congue risus. Donec massa ipsum, egestas non blandit in, porttitor et justo. Vestibulum nulla felis, ornare in lacinia at, sodales et nulla.</p>
+  </div>
+  <div class="news">
+  	<h2>Новина 1</h2>
+  	<img src="/images/templateLNU/new2.png" alt="new2"/>
+  	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur venenatis gravida risus, ac sodales purus pretium ac. Sed sodales velit vitae purus eleifend, nec rutrum mi aliquet. Sed pellentesque viverra est. Integer rhoncus hendrerit odio, quis posuere neque tristique non. Quisque cursus tellus dignissim, facilisis sem ut, congue risus. Donec massa ipsum, egestas non blandit in, porttitor et justo. Vestibulum nulla felis, ornare in lacinia at, sodales et nulla.</p>
+  </div>
+  <div class="news">
+  	<h2>Новина 1</h2>
+  	<img src="/images/templateLNU/new3.png" alt="new3"/>
+  	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur venenatis gravida risus, ac sodales purus pretium ac. Sed sodales velit vitae purus eleifend, nec rutrum mi aliquet. Sed pellentesque viverra est. Integer rhoncus hendrerit odio, quis posuere neque tristique non. Quisque cursus tellus dignissim, facilisis sem ut, congue risus. Donec massa ipsum, egestas non blandit in, porttitor et justo. Vestibulum nulla felis, ornare in lacinia at, sodales et nulla.</p>
+  </div>
+  <div class="news">
+  	<h2>Новина 1</h2>
+  	<img src="/images/templateLNU/new4.png" alt="new4"/>
+  	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur venenatis gravida risus, ac sodales purus pretium ac. Sed sodales velit vitae purus eleifend, nec rutrum mi aliquet. Sed pellentesque viverra est. Integer rhoncus hendrerit odio, quis posuere neque tristique non. Quisque cursus tellus dignissim, facilisis sem ut, congue risus. Donec massa ipsum, egestas non blandit in, porttitor et justo. Vestibulum nulla felis, ornare in lacinia at, sodales et nulla.</p>
+  </div>
+</div>
   <div onmousedown="onMouseDown(this)"></div>
 </div>
 	
