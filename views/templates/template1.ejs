@@ -2,7 +2,23 @@
     body {
       font-family: "Calibri";
     }
-	
+	.contentright {
+		clear:right;
+		padding: 10px;
+	}
+	.imgleft {
+		float:left;
+		padding: 10px;
+	}
+h2 {
+	clear:both;
+	padding-left: 10px;
+
+}
+h1 {
+	background-color: rgb(0, 67, 102);
+	color: white;
+}
 	#userheader  {
 	height:150px;
 	width:990px;
@@ -48,11 +64,12 @@ position: relative;
 	position: relative; 
     }	
 	#usernavigation{
-	height:50px;
+	height:60px;
 	width:990px;
+	border: 1px solid black;
 	margin-top:10px;
     position:relative; 
-    background-color:#ebebeb;
+    background-color:#E0E0E0;
     }
 	ul {
     list-style-type: none;
@@ -61,23 +78,16 @@ position: relative;
  }
 li {
    
-  padding: 7px 0 0px 0;
+  padding: 10px 0 0px 0;
   width: 20%;
   text-align: center;
-  border-right: 2px solid #ff0000;
+  border-right: 2px solid #000;
   display: inline-block;
   height:50px;
   vertical-align:middle;
   font-size: 20px;
 }
-h1 {
-	color: gray;
-  font-weight: bold;
-  font-size: 23px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  position: relative;
-}
+
 .news {
 
 }
@@ -85,40 +95,36 @@ h1 {
 <div id="userheader" onmousedown="onMouseDown(this)"></div>
 	
 <ul id='usernavigation' onmousedown="onMouseDown(this)">
-  <li class="usernavitem" onmousedown="onMouseDown(this)" style="position:relative;">Головна</li>
-  <li class="usernavitem" onmousedown="onMouseDown(this)" style="position:relative;">Про університет</li>
-  <li class="usernavitem" onmousedown="onMouseDown(this)" style="position:relative;">Інформація</li>
-  <li class="usernavitem" onmousedown="onMouseDown(this)" style="position:relative;">Контакти</li>
+  <li class="usernavitem" style="position:relative;" id="main">Головна</li>
+  <li class="usernavitem"  style="position:relative;" id="about">Про університет</li>
+  <li class="usernavitem"  style="position:relative;" id="information">Інформація</li>
+  <li class="usernavitem" style="position:relative;" id="address">Контакти</li>
 </ul>
 	
 <div id='usermain'  onmousedown="onMouseDown(this)">
   
 <div style="width:300px;border: 2px solid black;float:left;" > 	
-    <h1 id='userheadernews' onmousedown="onMouseDown(this)">Новини</h1>
+    <h1  onmousedown="onMouseDown(this)">Новини</h1>
 </div>
 
 <div style="width:620px;border: 2px solid black;float:left;margin-left:50px">
-  <h1 id='userheaderarticle' onmousedown="onMouseDown(this)">Оголошення </h1>
+  <h1  onmousedown="onMouseDown(this)">Оголошення </h1>
   <div class="news">
   	<h2>Новина 1</h2>
-  	<img src="/images/templateLNU/new1.png" alt="new1"/>
-  	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur venenatis gravida risus, ac sodales purus pretium ac. Sed sodales velit vitae purus eleifend, nec rutrum mi aliquet. Sed pellentesque viverra est. Integer rhoncus hendrerit odio, quis posuere neque tristique non. Quisque cursus tellus dignissim, facilisis sem ut, congue risus. Donec massa ipsum, egestas non blandit in, porttitor et justo. Vestibulum nulla felis, ornare in lacinia at, sodales et nulla.</p>
+  	<img  class="imgleft" src="/images/templateLNU/new1.png" alt="new1"/>
+  	<p class="contentright">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur venenatis gravida risus, ac sodales purus pretium ac. Sed sodales velit vitae purus eleifend, nec rutrum mi aliquet. Sed pellentesque viverra est. Integer rhoncus hendrerit odio, quis posuere neque tristique non. Quisque cursus tellus dignissim, facilisis sem ut, congue risus. Donec massa ipsum, egestas non blandit in, porttitor et justo. Vestibulum nulla felis, ornare in lacinia at, sodales et nulla.</p>
   </div>
   <div class="news">
-  	<h2>Новина 1</h2>
-  	<img src="/images/templateLNU/new2.png" alt="new2"/>
-  	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur venenatis gravida risus, ac sodales purus pretium ac. Sed sodales velit vitae purus eleifend, nec rutrum mi aliquet. Sed pellentesque viverra est. Integer rhoncus hendrerit odio, quis posuere neque tristique non. Quisque cursus tellus dignissim, facilisis sem ut, congue risus. Donec massa ipsum, egestas non blandit in, porttitor et justo. Vestibulum nulla felis, ornare in lacinia at, sodales et nulla.</p>
+  	<h2>Новина 2</h2>
+  	<img  class="imgleft" src="/images/templateLNU/new2.png" alt="new2"/>
+  	<p class="contentright">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur venenatis gravida risus, ac sodales purus pretium ac. Sed sodales velit vitae purus eleifend, nec rutrum mi aliquet. Sed pellentesque viverra est. Integer rhoncus hendrerit odio, quis posuere neque tristique non. Quisque cursus tellus dignissim, facilisis sem ut, congue risus. Donec massa ipsum, egestas non blandit in, porttitor et justo. Vestibulum nulla felis, ornare in lacinia at, sodales et nulla.</p>
   </div>
   <div class="news">
-  	<h2>Новина 1</h2>
-  	<img src="/images/templateLNU/new3.png" alt="new3"/>
-  	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur venenatis gravida risus, ac sodales purus pretium ac. Sed sodales velit vitae purus eleifend, nec rutrum mi aliquet. Sed pellentesque viverra est. Integer rhoncus hendrerit odio, quis posuere neque tristique non. Quisque cursus tellus dignissim, facilisis sem ut, congue risus. Donec massa ipsum, egestas non blandit in, porttitor et justo. Vestibulum nulla felis, ornare in lacinia at, sodales et nulla.</p>
+  	<h2>Новина 3</h2>
+  	<img class="imgleft" src="/images/templateLNU/new3.png" alt="new3"/>
+  	<p class="contentright">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur venenatis gravida risus, ac sodales purus pretium ac. Sed sodales velit vitae purus eleifend, nec rutrum mi aliquet. Sed pellentesque viverra est. Integer rhoncus hendrerit odio, quis posuere neque tristique non. Quisque cursus tellus dignissim, facilisis sem ut, congue risus. Donec massa ipsum, egestas non blandit in, porttitor et justo. Vestibulum nulla felis, ornare in lacinia at, sodales et nulla.</p>
   </div>
-  <div class="news">
-  	<h2>Новина 1</h2>
-  	<img src="/images/templateLNU/new4.png" alt="new4"/>
-  	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur venenatis gravida risus, ac sodales purus pretium ac. Sed sodales velit vitae purus eleifend, nec rutrum mi aliquet. Sed pellentesque viverra est. Integer rhoncus hendrerit odio, quis posuere neque tristique non. Quisque cursus tellus dignissim, facilisis sem ut, congue risus. Donec massa ipsum, egestas non blandit in, porttitor et justo. Vestibulum nulla felis, ornare in lacinia at, sodales et nulla.</p>
-  </div>
+  
 </div>
   <div onmousedown="onMouseDown(this)"></div>
 </div>

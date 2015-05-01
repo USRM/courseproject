@@ -11,13 +11,14 @@ function adjustMain () {
     temp.style.width = this.value;
     break;
     case "mainBackground":
-    temp.style.backgroundColor = this.value;
+    temp.style.background
+    Color = this.value;
     break;
   }
 
 }
 window.onkeydown = function () {
-  console.log(window.event.keyCode);
+
 
   if (window.event.keyCode == 83) {
 

@@ -90,7 +90,7 @@ function onMouseDown(el) {
     {
       resizing = true;
       resizingType = 0;
-      console.log(0);
+      
       moving = false;
 
     }
@@ -99,7 +99,8 @@ function onMouseDown(el) {
     {
       resizing = true;
       resizingType = 1;
-      console.log(1);
+      
+
       moving = false;
 
     }
@@ -109,7 +110,7 @@ function onMouseDown(el) {
     {
       resizing = true;
       resizingType = 2;
-      console.log(2);
+      
       moving = false;
 
     }
@@ -118,7 +119,7 @@ function onMouseDown(el) {
     {
       resizing = true;
       resizingType = 3;
-      console.log(3);
+      
       moving = false;
 
     }
