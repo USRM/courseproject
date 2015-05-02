@@ -15,10 +15,12 @@ h2 {
 	padding-left: 10px;
 
 }
-h1 {
+h1#headerMenu {
 	background-color: rgb(0, 67, 102);
 	color: white;
+	position: relative;
 }
+
 	#userheader  {
 	height:150px;
 	width:990px;
@@ -89,7 +91,7 @@ li {
 }
 
 .news {
-
+	overflow: auto;
 }
 </style>
 <div id="userheader" onmousedown="onMouseDown(this)"></div>
@@ -104,29 +106,35 @@ li {
 <div id='usermain'  onmousedown="onMouseDown(this)">
   
 <div style="width:300px;border: 2px solid black;float:left;" > 	
-    <h1  onmousedown="onMouseDown(this)">Новини</h1>
+    <h1 id="headerMenu" onmousedown="onMouseDown(this)">Новини</h1>
 </div>
 
-<div style="width:620px;border: 2px solid black;float:left;margin-left:50px">
-  <h1  onmousedown="onMouseDown(this)">Оголошення </h1>
-  <div class="news">
-  	<h2>Новина 1</h2>
-  	<img  class="imgleft" src="/images/templateLNU/new1.png" alt="new1"/>
-  	<p class="contentright">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur venenatis gravida risus, ac sodales purus pretium ac. Sed sodales velit vitae purus eleifend, nec rutrum mi aliquet. Sed pellentesque viverra est. Integer rhoncus hendrerit odio, quis posuere neque tristique non. Quisque cursus tellus dignissim, facilisis sem ut, congue risus. Donec massa ipsum, egestas non blandit in, porttitor et justo. Vestibulum nulla felis, ornare in lacinia at, sodales et nulla.</p>
-  </div>
-  <div class="news">
-  	<h2>Новина 2</h2>
-  	<img  class="imgleft" src="/images/templateLNU/new2.png" alt="new2"/>
-  	<p class="contentright">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur venenatis gravida risus, ac sodales purus pretium ac. Sed sodales velit vitae purus eleifend, nec rutrum mi aliquet. Sed pellentesque viverra est. Integer rhoncus hendrerit odio, quis posuere neque tristique non. Quisque cursus tellus dignissim, facilisis sem ut, congue risus. Donec massa ipsum, egestas non blandit in, porttitor et justo. Vestibulum nulla felis, ornare in lacinia at, sodales et nulla.</p>
-  </div>
-  <div class="news">
-  	<h2>Новина 3</h2>
-  	<img class="imgleft" src="/images/templateLNU/new3.png" alt="new3"/>
-  	<p class="contentright">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur venenatis gravida risus, ac sodales purus pretium ac. Sed sodales velit vitae purus eleifend, nec rutrum mi aliquet. Sed pellentesque viverra est. Integer rhoncus hendrerit odio, quis posuere neque tristique non. Quisque cursus tellus dignissim, facilisis sem ut, congue risus. Donec massa ipsum, egestas non blandit in, porttitor et justo. Vestibulum nulla felis, ornare in lacinia at, sodales et nulla.</p>
+<div style="width:620px;border: 2px solid black;float:left;margin-left:50px" >
+
+  <h1 id="headerMenu" onmousedown="onMouseDown(this)">Оголошення</h1>
+
+  <div class="news" onmousedown="onMouseDown(this)">
+  	<h2 class="nHeader">Новина 1</h2>
+  	<img  id="nImg" class="imgleft" src="/images/templateLNU/new1.png" alt="new1"/>
+  	<p id="nText" class="contentright">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur venenatis gravida risus, ac sodales purus pretium ac. Sed sodales velit vitae purus eleifend, nec rutrum mi aliquet. Sed pellentesque viverra est. Integer rhoncus hendrerit odio, quis posuere neque tristique non. Quisque cursus tellus dignissim, facilisis sem ut, congue risus. Donec massa ipsum, egestas non blandit in, porttitor et justo. Vestibulum nulla felis, ornare in lacinia at, sodales et nulla.</p>
+  	<hr/>
   </div>
   
+  <div class="news" onmousedown="onMouseDown(this)">
+  	<h2 class="nHeader">Новина 2</h2>
+  	<img  id="nImg" class="imgleft" src="/images/templateLNU/new2.png" alt="new2"/>
+  	<p id="nText" class="contentright">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur venenatis gravida risus, ac sodales purus pretium ac. Sed sodales velit vitae purus eleifend, nec rutrum mi aliquet. Sed pellentesque viverra est. Integer rhoncus hendrerit odio, quis posuere neque tristique non. Quisque cursus tellus dignissim, facilisis sem ut, congue risus. Donec massa ipsum, egestas non blandit in, porttitor et justo. Vestibulum nulla felis, ornare in lacinia at, sodales et nulla.</p>
+  	<hr/>
+  </div>
+  
+  <div class="news" onmousedown="onMouseDown(this)">
+  	<h2 class="nHeader">Новина 3</h2>
+  	<img id="nImg" class="imgleft" src="/images/templateLNU/new3.png" alt="new3"/>
+  	<p id="nText" class="contentright">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur venenatis gravida risus, ac sodales purus pretium ac. Sed sodales velit vitae purus eleifend, nec rutrum mi aliquet. Sed pellentesque viverra est. Integer rhoncus hendrerit odio, quis posuere neque tristique non. Quisque cursus tellus dignissim, facilisis sem ut, congue risus. Donec massa ipsum, egestas non blandit in, porttitor et justo. Vestibulum nulla felis, ornare in lacinia at, sodales et nulla.</p>
+  	<hr/>
+  </div>
+  
+
 </div>
-  <div onmousedown="onMouseDown(this)"></div>
 </div>
-	
 <div id='userfooter' onmousedown="onMouseDown(this)" ></div>

@@ -6,7 +6,10 @@ var targetProperties = {
 	"userheadernews" : ["height", "width", "background-color", "borderRadius", "color", "padding", "innerHTML"],
 	"userheaderarticle" : ["height", "width", "background-color", "borderRadius", "color", "padding", "innerHTML"],
 	"usernews" : ["height", "width","background-color", "borderRadius"],
+	"news" : ["height", "width","background-color", "borderRadius"],
+	"headermenu" : ["height", "width","background-color", "borderRadius", "innerHTML"],
 	"usernavitem" : ["height", "width","background-color", "borderRadius", "innerHTML"]
+
 };
 
 var mapping = {
@@ -24,24 +27,7 @@ var lastPositionLeft;
 
 //create Settings Bar div 
 function initSettingsBar() {       
-
-// header --- img height width background color border
-
-//footer ---   height width background color border . Text value  
-
-//navigation --- number of points width height backgroundcolor colors
-
-//navigation item --- padding margin
-
-//MainMenu  ---  width height  backgroundColor backgroundImage padding 
-
-//FirstHeader  --- padding text color
-
-//SecondHeader  --- padding text color
-
-//News items   --- width height 
-
-//common information  --- color fonts  line weight   
+  
 var header = document.createElement("p");
 header.innerHTML = "Налаштування<hr/>";
 header.style.fontSize = "20px";
@@ -64,9 +50,6 @@ var startY;
 
 var positionTop;
 var positionLeft;
-
-
-
 
 div.addEventListener("mousedown", function() {
 	positionTop = parseFloat(window.getComputedStyle(this, null).getPropertyValue("top"));
@@ -109,10 +92,10 @@ div.appendChild(header);
 
 return div;
 }
-
+var targetElement;
 //create form's input based on target properties and append them to parent
 function initSettingsBarContent(target, parent) {
-
+	targetElement = target;
 	parent.style.width = "250px";
 	parent.id = "settings";
 	parent.style.maxHeight = "700px";
@@ -130,8 +113,10 @@ function initSettingsBarContent(target, parent) {
 
 	var propertiesValues = window.getComputedStyle(target, null);
 	var targetID =  target.id.toLowerCase() == "" ?  target.className.toLowerCase() : target.id.toLowerCase();
-	var availibleProperties = targetProperties[targetID]; 
 
+
+	var availibleProperties = targetProperties[targetID]; 
+	
 
 	var amount = 0;
 	content = {};
@@ -185,20 +170,23 @@ function initSettingsBarContent(target, parent) {
 		if(targetID == "usernavigation") {
 			addExtraFunctionality(form);
 		}
+		if(targetID == "news") {
+			addChangeFeature(form);
+		}
 		parent.appendChild(form);
 
 	}
 	var counter = 0;
 
 	var navigationItems = [];
-	function addExtraFunctionality (formElement) {
+function addExtraFunctionality (formElement) {
 
 		var ul = document.getElementById("usernavigation");
 
 		var children = ul.children;
 
 
-		console.log(children.length);
+		
 
 		var headerName = document.createElement("p");
 		headerName.innerHTML = "Змінити вміст";
@@ -264,15 +252,6 @@ function initSettingsBarContent(target, parent) {
 					}
 
 				}
-
-
-
-         /*var newItem = document.createElement("li");
-      	 var mainNav = document.getElementById("usernavigation");
-      	 newItem.innerHTML = this.value;
-      	 mainNav.appendChild(newItem);
-      	 */
-
 
       	});
 			counter++;
@@ -409,20 +388,105 @@ function initSettingsBarContent(target, parent) {
 		container.appendChild(field);
 
 		formElement.appendChild(container);
+}
 
+var targetToDelete;
+var prevElem;
+function deletable(element) {
+	if(prevElem!=null) {
+		prevElem.style.opacity = 1;
+	}
+	targetToDelete = element;
+	targetToDelete.style.opacity = 0.8;
+	prevElem = targetToDelete;
+}
+var toDelete = [];
 
+function addChangeFeature(formElement ) {
+	var changeButton = document.createElement("input");
+	changeButton.type = "button";
+	changeButton.style.width = "190px";
+	changeButton.value = "Змінити вигляд";
+	changeButton.addEventListener("click",function() {
 
-/*
-	var name = document.createElement("p");
-	name.style.padding = "10px";
-	name.style.marginLeft = "10px";
-	name.innerHTML = "Text:"; */
+		if(document.getElementById("newsEditor") != null) {
+        var elem = document.getElementById("newsEditor");
+        elem.parentNode.removeChild(elem);
+    	}
+
+		var extraEditor = document.createElement("div");
+
+		extraEditor.style.width = "700px";
+		extraEditor.style.height = "400px";
+		extraEditor.style.position = "fixed";
+		extraEditor.style.top = "100px";
+		extraEditor.style.left = "200px";
+		extraEditor.id = "newsEditor";
+		extraEditor.style.backgroundColor = "rgba(255,255,255,0.8)";
+		var html = targetElement.innerHTML;
 
 	
+		var replaced;
+		replaced = html.replace("<h2","<h2 onclick='deletable(this)' ");//.html.
+		replaced = replaced.replace("<img", "<img onclick='deletable(this)' ");
+		replaced = replaced.replace("<p", "<p onclick='deletable(this)' ");
+		
+		extraEditor.innerHTML = replaced;
+
+		    var deleteIcon = document.createElement("input");
+            deleteIcon.type = "button";
+			deleteIcon.style.width = "130px";
+			deleteIcon.value ="Видалити";
+			deleteIcon.style.position = "absolute";
+			deleteIcon.style.bottom = "10px";
+			deleteIcon.style.right = "146px";
+			deleteIcon.addEventListener("click", function() {
+			
+				if(targetToDelete!=null) {
+					console.log(targetToDelete.className);
+					toDelete.push(targetToDelete.className);
+					targetToDelete.parentNode.removeChild(targetToDelete);
+				}
+
+			});
+		extraEditor.appendChild(deleteIcon);
+
+
+
+		var applyIcon = document.createElement("input");
+            applyIcon.type = "button";
+			applyIcon.style.width = "130px";
+			applyIcon.value ="Застосувати";
+			applyIcon.style.position = "absolute";
+			applyIcon.style.bottom = "10px";
+			applyIcon.style.right = "10px";
+			applyIcon.addEventListener("click", function() {
+				
+				for(var i = 0; i<toDelete.length; ++i) {
+					var temp = document.getElementsByClassName(toDelete[i]);
+					console.log(temp.length);
+					for(var j = temp.length-1; j>=0; --j)
+					{
+						console.log(temp[j].innerHTML);
+						temp[j].parentNode.removeChild(temp[j]);
+					}
+				} 
+				extraEditor.parentNode.removeChild(extraEditor);
+
+			});
+		extraEditor.appendChild(applyIcon);
+
+
+
+		document.body.appendChild(extraEditor);
+		});
+	formElement.appendChild(changeButton);
 
 
 
 
 
 
-}
+
+ }
+

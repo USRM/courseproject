@@ -1,0 +1,194 @@
+
+<html>
+<head></head>
+<body>
+<div id="editor" style="width:1000px;height:500px">
+<input type="text" list="browsers" id="types"/>
+<datalist id="browsers">
+  <option value="Шапка">
+  <option value="Футер">
+  <option value="Chrome">
+  <option value="Opera">
+  <option value="Safari">
+</datalist>
+</div> 
+<input type="button" value="створити" onclick="createCustomElement()"/>
+<script src="/javascripts/settings.js"></script>
+<script src="/javascripts/mainFrameSettings.js"></script>
+<script src="/javascripts/controller.js"></script>
+
+<script type="text/javascript">
+var dictionary = {
+ "Шапка":"userheader",
+ "Футер":"userfooter"
+};
+var datalist = document.getElementById ("browsers");
+var input = document.getElementById ("types");
+
+input.addEventListener ("keyup", function (event) {
+    if (event.which === 13) {
+        if(input.value=="Шапка") {
+        	var sElement = document.createElement("div");
+        	sElement.id = dictionary[input.value];
+        	if(document.getElementById("settings")!=null) {
+        		document.getElementById("settings").parentNode.removeChild(document.getElementById("settings"));
+        	}
+        	initSettingsBarContent(sElement,initSettingsBar());
+        }
+        if(input.value=="Футер") {
+        	var sElement = document.createElement("div");
+        	if(document.getElementById("settings")!=null) {
+        		document.getElementById("settings").parentNode.removeChild(document.getElementById("settings"));
+        	}
+
+        	sElement.id = dictionary[input.value];
+        	initSettingsBarContent(sElement,initSettingsBar());
+        }
+    }
+}, false);
+
+function createCustomElement() {
+	var input = document.getElementById ("types");
+	if(input.value == "Шапка") {
+		var eleme = document.createElement("div");
+		eleme.id = dictionary["Шапка"];
+		eleme.style.height = document.getElementById("height").value;
+		eleme.style.width = document.getElementById("width").value;
+		eleme.style.backgroundColor = document.getElementById("background-color").value;
+		eleme.style.borderRadius = document.getElementById("borderRadius").value;
+		eleme.style.position ="relative";
+		eleme.addEventListener("mousedown",onMouseDown);
+		document.getElementById("editor").appendChild(eleme);
+	}
+	if(input.value == "Футер") {
+		var eleme = document.createElement("div");
+		eleme.id = dictionary["Футер"];
+		eleme.style.height = document.getElementById("height").value;
+		eleme.style.width = document.getElementById("width").value;
+		eleme.style.backgroundColor = document.getElementById("background-color").value;
+		eleme.style.borderRadius = document.getElementById("borderRadius").value;
+		eleme.style.position ="relative";
+		eleme.addEventListener("mousedown",onMouseDown);
+		document.getElementById("editor").appendChild(eleme);
+	}
+}
+
+
+ 
+	/*var createdElements;
+
+	var alavibleElements = {"userheader" : ["img", "height", "width", "background-color", "borderRadius"],
+	"userfooter" : ["height", "width", "background-color", "borderRadius", "innerHTML"],
+	"usermain" : ["height", "width", "background-color", "borderRadius"],
+	"usernavigation" : ["height", "width", "background-color", "borderRadius"],
+	"userheadernews" : ["height", "width", "background-color", "borderRadius", "color", "padding", "innerHTML"],
+	"userheaderarticle" : ["height", "width", "background-color", "borderRadius", "color", "padding", "innerHTML"],
+	"usernews" : ["height", "width","background-color", "borderRadius"],
+	"news" : ["height", "width","background-color", "borderRadius"],
+	"headermenu" : ["height", "width","background-color", "borderRadius", "innerHTML"],
+	"usernavitem" : ["height", "width","background-color", "borderRadius", "innerHTML"]
+};
+ 
+    var content;
+var lastPositionTop;
+var lastPositionLeft; 
+
+//create Settings Bar div 
+function initCreaterBar() {       
+  
+var header = document.createElement("p");
+header.innerHTML = "Створення<hr/>";
+header.style.fontSize = "20px";
+header.style.textAlign = "center";
+if(lastPositionTop==null) {
+
+	lastPositionTop = 0;
+}
+
+if(lastPositionLeft==null) {
+
+	lastPositionLeft = 0;
+}
+
+var div = document.createElement("div");
+
+
+var startX;
+var startY;
+
+var positionTop;
+var positionLeft;
+
+div.addEventListener("mousedown", function() {
+	positionTop = parseFloat(window.getComputedStyle(this, null).getPropertyValue("top"));
+	positionLeft = parseFloat(window.getComputedStyle(this, null).getPropertyValue("left"));
+	var movingBar = true;
+	startX = window.event.x;
+	startY = window.event.y;
+
+
+
+	if(positionTop == "auto") {
+		positionTop = 0;
+	}
+
+	if(positionLeft == "auto") {
+		positionLeft = 0;
+	}
+
+	div.addEventListener("mousemove", function() {
+		if(movingBar == true) {
+			var shiftX = window.event.x - startX;
+			var shiftY = window.event.y - startY;	
+
+			div.style.top = positionTop + shiftY +"px";
+			div.style.left = positionLeft + shiftX +"px";
+		}
+
+	});
+
+	div.addEventListener("mouseup", function() {
+		movingBar = false;
+
+		lastPositionTop = parseFloat(window.getComputedStyle(div, null).getPropertyValue("top")) + "px";
+		lastPositionLeft = parseFloat(window.getComputedStyle(div, null).getPropertyValue("left")) + "px";
+
+	});
+
+});
+div.appendChild(header);
+
+return div;
+}
+var targetElement;
+//create form's input based on target properties and append them to parent
+function initCreaterBarContent(parent) {
+	
+	parent.style.width = "250px";
+	parent.id = "settings";
+	parent.style.maxHeight = "700px";
+	parent.style.overflow = "scroll";
+	parent.style.backgroundColor = "#EBEBEB";
+	parent.style.position = "fixed";
+	parent.style.top = lastPositionTop;
+	parent.style.borderStyle = "solid";
+	parent.style.borderWidth = "2px";
+	parent.style.borderColor = "#011845";
+	parent.addEventListener("resize", function () {alert("hello");});
+	parent.style.left = lastPositionLeft;
+
+
+
+	document.body.appendChild(parent);
+}
+initCreaterBarContent(initCreaterBar());
+*/
+</script>
+
+
+
+
+
+</body>
+</html>
+
