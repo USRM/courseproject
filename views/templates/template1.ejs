@@ -1,27 +1,25 @@
 <style>
-    body {
-      font-family: "Calibri";
-    }
-	.contentright {
-		clear:right;
-		padding: 10px;
-	}
-	.imgleft {
-		float:left;
-		padding: 10px;
-	}
+body {
+    font-family: "Calibri";
+}
+.contentright {
+	clear:right;
+	padding: 10px;
+}
+.imgleft {
+	float:left;
+	padding: 10px;
+}
 h2 {
 	clear:both;
 	padding-left: 10px;
-
 }
 h1#headerMenu {
 	background-color: rgb(0, 67, 102);
 	color: white;
 	position: relative;
 }
-
-	#userheader  {
+#userheader  {
 	height:150px;
 	width:990px;
 	position: relative; 
@@ -30,21 +28,21 @@ h1#headerMenu {
 	background-size:contain;
 	background-repeat: no-repeat;
 	background-color:#004366;
-	}
-	p {
+}
+p {
 	position: relative; 
-	}
-	#usermain {
+}
+#usermain {
 	border:1px dashed black;
 	width:990px;
 	overflow:hidden;
 	background-position:center;
 	background-size:contain;
 	background-repeat: no-repeat;
-position: relative; 
+	position: relative; 
 	margin-top:10px;
-	}
-	#usercontent {
+}
+#usercontent {
 	border: 1px dashed black;
 	height:400px;
 	background-image:url(/images/add_button.png);
@@ -53,9 +51,9 @@ position: relative;
 	background-repeat: no-repeat;
 	width:1000px;
 	margin-top:10px;
-position: relative; 
-	}
-	#userfooter{
+	position: relative; 
+}
+#userfooter{
 	height:70px;
 	background-position:center;
 	background-size:contain;
@@ -64,20 +62,20 @@ position: relative;
 	background-color:#004366;
 	margin-top:10px;
 	position: relative; 
-    }	
-	#usernavigation{
+}	
+#usernavigation{
 	height:60px;
 	width:990px;
 	border: 1px solid black;
 	margin-top:10px;
     position:relative; 
     background-color:#E0E0E0;
-    }
-	ul {
+}
+ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
- }
+}
 li {
    
   padding: 10px 0 0px 0;
@@ -94,6 +92,7 @@ li {
 	overflow: auto;
 }
 </style>
+
 <div id="userheader" onmousedown="onMouseDown(this)"></div>
 	
 <ul id='usernavigation' onmousedown="onMouseDown(this)">
@@ -105,32 +104,36 @@ li {
 	
 <div id='usermain'  onmousedown="onMouseDown(this)">
   
-<div style="width:300px;border: 2px solid black;float:left;" > 	
-    <h1 id="headerMenu" onmousedown="onMouseDown(this)">Новини</h1>
+<div onmousedown="onMouseDown(this)" style="width:300px;position:relative;border: 2px solid black;float:left;" > 	 <h1 id="headerMenu" onmousedown="onMouseDown(this)">Новини</h1>
+    <h3>Факультети</h3>
+    <p ondblclick="changeInnerContent(this)" onmousedown="onMouseDown(this)">Філософський</p>
+    <p ondblclick="changeInnerContent(this)" onmousedown="onMouseDown(this)">Прикладної математики</p>
+    <p ondblclick="changeInnerContent(this)" onmousedown="onMouseDown(this)">Історичний</p>
+    <p ondblclick="changeInnerContent(this)" onmousedown="onMouseDown(this)">Географічний</p>
 </div>
 
-<div style="width:620px;border: 2px solid black;float:left;margin-left:50px" >
+<div onmousedown="onMouseDown(this)" id="newscontainer" style="width:620px;border: 2px solid black;float:left;position:relative;margin-left:50px" >
 
   <h1 id="headerMenu" onmousedown="onMouseDown(this)">Оголошення</h1>
 
   <div class="news" onmousedown="onMouseDown(this)">
   	<h2 class="nHeader">Новина 1</h2>
-  	<img  id="nImg" class="imgleft" src="/images/templateLNU/new1.png" alt="new1"/>
-  	<p id="nText" class="contentright">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur venenatis gravida risus, ac sodales purus pretium ac. Sed sodales velit vitae purus eleifend, nec rutrum mi aliquet. Sed pellentesque viverra est. Integer rhoncus hendrerit odio, quis posuere neque tristique non. Quisque cursus tellus dignissim, facilisis sem ut, congue risus. Donec massa ipsum, egestas non blandit in, porttitor et justo. Vestibulum nulla felis, ornare in lacinia at, sodales et nulla.</p>
+  	<img  ondblclick="changeImage(this)" id="nImg" class="imgleft" src="/images/templateLNU/new1.png" alt="new1"/>
+  	<p ondblclick="changeInnerContent(this)" id="nText" class="contentright">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur venenatis gravida risus, ac sodales purus pretium ac. Sed sodales velit vitae purus eleifend, nec rutrum mi aliquet. Sed pellentesque viverra est. Integer rhoncus hendrerit odio, quis posuere neque tristique non. Quisque cursus tellus dignissim, facilisis sem ut, congue risus. Donec massa ipsum, egestas non blandit in, porttitor et justo. Vestibulum nulla felis, ornare in lacinia at, sodales et nulla.</p>
   	<hr/>
   </div>
   
   <div class="news" onmousedown="onMouseDown(this)">
   	<h2 class="nHeader">Новина 2</h2>
   	<img  id="nImg" class="imgleft" src="/images/templateLNU/new2.png" alt="new2"/>
-  	<p id="nText" class="contentright">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur venenatis gravida risus, ac sodales purus pretium ac. Sed sodales velit vitae purus eleifend, nec rutrum mi aliquet. Sed pellentesque viverra est. Integer rhoncus hendrerit odio, quis posuere neque tristique non. Quisque cursus tellus dignissim, facilisis sem ut, congue risus. Donec massa ipsum, egestas non blandit in, porttitor et justo. Vestibulum nulla felis, ornare in lacinia at, sodales et nulla.</p>
+  	<p ondblclick="changeInnerContent(this)" id="nText" class="contentright">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur venenatis gravida risus, ac sodales purus pretium ac. Sed sodales velit vitae purus eleifend, nec rutrum mi aliquet. Sed pellentesque viverra est. Integer rhoncus hendrerit odio, quis posuere neque tristique non. Quisque cursus tellus dignissim, facilisis sem ut, congue risus. Donec massa ipsum, egestas non blandit in, porttitor et justo. Vestibulum nulla felis, ornare in lacinia at, sodales et nulla.</p>
   	<hr/>
   </div>
   
   <div class="news" onmousedown="onMouseDown(this)">
   	<h2 class="nHeader">Новина 3</h2>
   	<img id="nImg" class="imgleft" src="/images/templateLNU/new3.png" alt="new3"/>
-  	<p id="nText" class="contentright">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur venenatis gravida risus, ac sodales purus pretium ac. Sed sodales velit vitae purus eleifend, nec rutrum mi aliquet. Sed pellentesque viverra est. Integer rhoncus hendrerit odio, quis posuere neque tristique non. Quisque cursus tellus dignissim, facilisis sem ut, congue risus. Donec massa ipsum, egestas non blandit in, porttitor et justo. Vestibulum nulla felis, ornare in lacinia at, sodales et nulla.</p>
+  	<p ondblclick="changeInnerContent(this)" id="nText" class="contentright">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur venenatis gravida risus, ac sodales purus pretium ac. Sed sodales velit vitae purus eleifend, nec rutrum mi aliquet. Sed pellentesque viverra est. Integer rhoncus hendrerit odio, quis posuere neque tristique non. Quisque cursus tellus dignissim, facilisis sem ut, congue risus. Donec massa ipsum, egestas non blandit in, porttitor et justo. Vestibulum nulla felis, ornare in lacinia at, sodales et nulla.</p>
   	<hr/>
   </div>
   

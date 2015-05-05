@@ -8,7 +8,10 @@ var targetProperties = {
 	"usernews" : ["height", "width","background-color", "borderRadius"],
 	"news" : ["height", "width","background-color", "borderRadius"],
 	"headermenu" : ["height", "width","background-color", "borderRadius", "innerHTML"],
-	"usernavitem" : ["height", "width","background-color", "borderRadius", "innerHTML"]
+	"usernavitem" : ["height", "width","background-color", "borderRadius", "innerHTML"],
+	"newscontainer" : ["height", "width","background-color", "borderRadius"]
+
+	
 
 };
 
@@ -182,7 +185,7 @@ function initSettingsBarContent(target, parent) {
 function addExtraFunctionality (formElement) {
 
 		var ul = document.getElementById("usernavigation");
-
+		if(ul!=null)
 		var children = ul.children;
 
 
@@ -222,7 +225,7 @@ function addExtraFunctionality (formElement) {
 		});
 		formElement.appendChild(extendButton);
 
-
+		if(ul!=null)
 		for(var i = 0 ; i < children.length; ++i) {
 
 			var info = {};
@@ -375,14 +378,6 @@ function addExtraFunctionality (formElement) {
 			cont.appendChild(deleteIcon);
 
 
-
-
-
-
-
-
-
-
 			existingItems.appendChild(cont);
 		});
 		container.appendChild(field);
@@ -391,6 +386,7 @@ function addExtraFunctionality (formElement) {
 }
 
 var targetToDelete;
+var addedElements=[];
 var prevElem;
 function deletable(element) {
 	if(prevElem!=null) {
@@ -407,9 +403,8 @@ function addChangeFeature(formElement ) {
 	changeButton.type = "button";
 	changeButton.style.width = "190px";
 	changeButton.value = "Змінити вигляд";
-	changeButton.addEventListener("click",function() {
-
-		if(document.getElementById("newsEditor") != null) {
+	changeButton.addEventListener("click", function() {
+     	if(document.getElementById("newsEditor") != null) {
         var elem = document.getElementById("newsEditor");
         elem.parentNode.removeChild(elem);
     	}
@@ -433,60 +428,123 @@ function addChangeFeature(formElement ) {
 		
 		extraEditor.innerHTML = replaced;
 
-		    var deleteIcon = document.createElement("input");
-            deleteIcon.type = "button";
-			deleteIcon.style.width = "130px";
-			deleteIcon.value ="Видалити";
-			deleteIcon.style.position = "absolute";
-			deleteIcon.style.bottom = "10px";
-			deleteIcon.style.right = "146px";
-			deleteIcon.addEventListener("click", function() {
+		var deleteIcon = document.createElement("input");
+        deleteIcon.type = "button";
+	    deleteIcon.style.width = "130px";
+	    deleteIcon.value ="Видалити";
+		deleteIcon.style.position = "absolute";
+		deleteIcon.style.bottom = "10px";
+		deleteIcon.style.right = "146px";
+		deleteIcon.addEventListener("click", function() {
 			
-				if(targetToDelete!=null) {
-					console.log(targetToDelete.className);
-					toDelete.push(targetToDelete.className);
-					targetToDelete.parentNode.removeChild(targetToDelete);
-				}
+			if(targetToDelete!=null) {
+				console.log(targetToDelete.className);
+				toDelete.push(targetToDelete.className);
+				targetToDelete.parentNode.removeChild(targetToDelete);
+			}
 
-			});
+		});
 		extraEditor.appendChild(deleteIcon);
 
 
 
 		var applyIcon = document.createElement("input");
-            applyIcon.type = "button";
-			applyIcon.style.width = "130px";
-			applyIcon.value ="Застосувати";
-			applyIcon.style.position = "absolute";
-			applyIcon.style.bottom = "10px";
-			applyIcon.style.right = "10px";
-			applyIcon.addEventListener("click", function() {
+        applyIcon.type = "button";
+		applyIcon.style.width = "130px";
+		applyIcon.value ="Застосувати";
+		applyIcon.style.position = "absolute";
+		applyIcon.style.bottom = "10px";
+		applyIcon.style.right = "10px";
+		applyIcon.addEventListener("click", function() {
 				
-				for(var i = 0; i<toDelete.length; ++i) {
-					var temp = document.getElementsByClassName(toDelete[i]);
-					console.log(temp.length);
-					for(var j = temp.length-1; j>=0; --j)
-					{
-						console.log(temp[j].innerHTML);
-						temp[j].parentNode.removeChild(temp[j]);
-					}
-				} 
-				extraEditor.parentNode.removeChild(extraEditor);
+			for(var i = 0; i<toDelete.length; ++i) {
+				var temp = document.getElementsByClassName(toDelete[i]);
+				console.log(temp.length);
+				for(var j = temp.length-1; j>=0; --j) {
+					console.log(temp[j].innerHTML);
+					temp[j].parentNode.removeChild(temp[j]);
+				}
+			} 
 
-			});
+
+			for(var i = 0; i<addedElements.length; ++i) {
+				var temp = document.getElementsByClassName("news");
+				console.log(temp.length);
+				for(var j = temp.length-1; j>=0; --j) {
+					
+					temp[j].innerHTML = temp[j].innerHTML + addedElements[i];
+				}
+			}
+
+			extraEditor.parentNode.removeChild(extraEditor);
+
+		});
 		extraEditor.appendChild(applyIcon);
 
+        document.body.appendChild(extraEditor);
 
 
-		document.body.appendChild(extraEditor);
+        var options = document.createElement("INPUT");
+        options.setAttribute("list", "soptions");
+        options.style.position = "absolute";
+		options.style.bottom = "10px";
+		options.style.right = "400px";
+        extraEditor.appendChild(options);
+
+        var y = document.createElement("DATALIST");
+        y.setAttribute("id", "soptions");
+        extraEditor.appendChild(y);
+
+        var z = document.createElement("OPTION");
+        z.setAttribute("value", "Абзац");
+        var z1 = document.createElement("OPTION");
+        z1.setAttribute("value", "Заголовок");
+        var z2 = document.createElement("OPTION");
+        z2.setAttribute("value", "Зображення");
+        y.appendChild(z);
+        y.appendChild(z1);
+
+        y.appendChild(z2);
+
+
+
+        var addElement = document.createElement("input");
+        addElement.type = "button";
+		addElement.style.width = "130px";
+		addElement.value ="Добавити";
+		addElement.style.position = "absolute";
+		addElement.style.bottom = "10px";
+		addElement.style.right = "600px";
+		addElement.addEventListener("click", function() {
+			if(options.value=="") {
+				alert("Виберіть тип елементу!");
+			}
+			if(options.value=="Абзац") {
+				var nHTML = "<p>Новий Абзац</p>";
+				addedElements.push(nHTML);
+				console.log(addedElements.length);
+			}
+			if(options.value=="") {
+				alert("Виберіть тип елементу!");
+			}
+			
 		});
+
+
+		
+		
+
+
+
+		extraEditor.appendChild(addElement);
+
+		
+
+        document.body.appendChild(extraEditor);
+
+
+
+	});
 	formElement.appendChild(changeButton);
-
-
-
-
-
-
-
- }
+}
 

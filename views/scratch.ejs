@@ -1,15 +1,114 @@
 
 <html>
-<head></head>
+<head>
+<style>
+    body {
+      font-family: "Calibri";
+    }
+	.contentright {
+		clear:right;
+		padding: 10px;
+	}
+	.imgleft {
+		float:left;
+		padding: 10px;
+	}
+h2 {
+	clear:both;
+	padding-left: 10px;
+
+}
+h1#headerMenu {
+	background-color: rgb(0, 67, 102);
+	color: white;
+	position: relative;
+}
+
+	#userheader  {
+	height:150px;
+	width:990px;
+	position: relative; 
+	background-image:url(/images/templateLNU/headerImage.png);
+	background-position:left;
+	background-size:contain;
+	background-repeat: no-repeat;
+	background-color:#004366;
+	}
+	p {
+	position: relative; 
+	}
+	#usermain {
+	border:1px dashed black;
+	width:990px;
+	overflow:hidden;
+	background-position:center;
+	background-size:contain;
+	background-repeat: no-repeat;
+position: relative; 
+	margin-top:10px;
+	}
+	#usercontent {
+	border: 1px dashed black;
+	height:400px;
+	background-image:url(/images/add_button.png);
+	background-position:center;
+	background-size:contain;
+	background-repeat: no-repeat;
+	width:1000px;
+	margin-top:10px;
+position: relative; 
+	}
+	#userfooter{
+	height:70px;
+	background-position:center;
+	background-size:contain;
+	background-repeat: no-repeat;
+	width:990px;
+	background-color:#004366;
+	margin-top:10px;
+	position: relative; 
+    }	
+	#usernavigation{
+	height:60px;
+	width:990px;
+	border: 1px solid black;
+	margin-top:10px;
+    position:relative; 
+    background-color:#E0E0E0;
+    }
+	ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+ }
+li {
+   
+  padding: 10px 0 0px 0;
+  width: 20%;
+  text-align: center;
+  border-right: 2px solid #000;
+  display: inline-block;
+  height:50px;
+  vertical-align:middle;
+  font-size: 20px;
+}
+
+.news {
+	overflow: auto;
+}
+</style>
+
+<title>From Scratch</title>
+</head>
 <body>
 <div id="editor" style="width:1000px;height:500px">
 <input type="text" list="browsers" id="types"/>
 <datalist id="browsers">
   <option value="Шапка">
   <option value="Футер">
-  <option value="Chrome">
-  <option value="Opera">
-  <option value="Safari">
+  <option value="Навігація">
+  <option value="Контейнер Новин">
+  <option value="Новина">
 </datalist>
 </div> 
 <input type="button" value="створити" onclick="createCustomElement()"/>
@@ -20,7 +119,10 @@
 <script type="text/javascript">
 var dictionary = {
  "Шапка":"userheader",
- "Футер":"userfooter"
+ "Футер":"userfooter",
+ "Навігація":"usernavigation",
+ "Контейнер Новин":"newscontainer",
+ "Новина":"news"
 };
 var datalist = document.getElementById ("browsers");
 var input = document.getElementById ("types");
@@ -44,6 +146,39 @@ input.addEventListener ("keyup", function (event) {
         	sElement.id = dictionary[input.value];
         	initSettingsBarContent(sElement,initSettingsBar());
         }
+        if(input.value=="Навігація") {
+        	var sElement = document.createElement("div");
+        	if(document.getElementById("settings")!=null) {
+        		document.getElementById("settings").parentNode.removeChild(document.getElementById("settings"));
+        	}
+
+        	sElement.id = dictionary[input.value];
+        	console.log(dictionary[input.value]);
+        	initSettingsBarContent(sElement,initSettingsBar());
+        }
+        if(input.value=="Контейнер Новин") {
+        	var sElement = document.createElement("div");
+        	if(document.getElementById("settings")!=null) {
+        		document.getElementById("settings").parentNode.removeChild(document.getElementById("settings"));
+        	}
+
+        	sElement.id = dictionary[input.value];
+        	console.log(dictionary[input.value]);
+        	initSettingsBarContent(sElement,initSettingsBar());
+        }
+        if(input.value=="Новина") {
+        	var sElement = document.createElement("div");
+        	if(document.getElementById("settings")!=null) {
+        		document.getElementById("settings").parentNode.removeChild(document.getElementById("settings"));
+        	}
+
+        	sElement.id = dictionary[input.value];
+        	console.log(dictionary[input.value]);
+        	initSettingsBarContent(sElement,initSettingsBar());
+        }
+
+
+
     }
 }, false);
 
@@ -71,6 +206,46 @@ function createCustomElement() {
 		eleme.addEventListener("mousedown",onMouseDown);
 		document.getElementById("editor").appendChild(eleme);
 	}
+	if(input.value == "Навігація") {
+		var eleme = document.createElement("ul");
+		eleme.id = dictionary["Навігація"];
+		eleme.style.height = document.getElementById("height").value;
+		eleme.style.width = document.getElementById("width").value;
+		eleme.style.backgroundColor = document.getElementById("background-color").value;
+		eleme.style.borderRadius = document.getElementById("borderRadius").value;
+		eleme.style.position ="relative";
+		eleme.addEventListener("mousedown",onMouseDown);
+		document.getElementById("editor").appendChild(eleme);
+	}
+	if(input.value == "Контейнер Новин") {
+		var eleme = document.createElement("div");
+		eleme.id = dictionary["Контейнер Новин"];
+		eleme.style.height = document.getElementById("height").value;
+		eleme.style.width = document.getElementById("width").value;
+		eleme.style.backgroundColor = document.getElementById("background-color").value;
+		eleme.style.borderRadius = document.getElementById("borderRadius").value;
+		eleme.style.position ="relative";
+		eleme.addEventListener("mousedown",onMouseDown);
+		document.getElementById("editor").appendChild(eleme);
+	}
+	if(input.value == "Новина") {
+		var eleme = document.createElement("div");
+		eleme.className = dictionary["Новина"];
+		eleme.id = dictionary["Новина"];
+		eleme.style.height = document.getElementById("height").value;
+		eleme.style.width = document.getElementById("width").value;
+		eleme.style.backgroundColor = document.getElementById("background-color").value;
+		eleme.style.borderRadius = document.getElementById("borderRadius").value;
+		eleme.style.position ="relative";
+		eleme.addEventListener("mousedown",onMouseDown);
+		var container = document.getElementById("newscontainer");
+		if(container == null) {
+			alert("Додайте будь ласка контейнер новин");
+		} else {
+				container.appendChild(eleme);
+		  }
+	}
+
 }
 
 

@@ -9,10 +9,6 @@ function clearDefaultEvents () {
 }
 clearDefaultEvents();
 
-
-
-
-
 var currentElement;
 var moving = false;
 var resizing = false;
@@ -29,7 +25,94 @@ var currentRigth;
 var editor = document.getElementById("editor");
 var interactingWithChild;
 var interactingWithChild2;
+function changeImage(el) {
+  var changeImg = document.createElement("form");
 
+    changeImg.style.width = "300px";
+    changeImg.style.height = "300px";
+    changeImg.style.position = "fixed";
+    changeImg.style.top = "100px";
+    changeImg.style.left = "200px";
+    changeImg.method = "post";
+    changeImg.action ="/editor";
+    changeImg.enctype = "multipart/form-data";
+    changeImg.style.backgroundColor = "rgba(255,255,255,0.8)";
+
+
+
+    var selectImg = document.createElement("input");
+    selectImg.type = "file";
+    selectImg.style.width = "200px";
+    selectImg.style.height = "200px";
+    selectImg.style.position = "fixed";
+    selectImg.name= "file";
+
+    /*selectImg.addEventListener("change", function(){
+      el.innerHTML = edit.value;
+    });*/
+
+
+    var closebtn = document.createElement("input");
+    closebtn.type = "submit";
+    closebtn.value = "Upload";
+    closebtn.style.position = "absolute";
+
+    closebtn.style.bottom = "10px";
+    closebtn.style.left = "10px";
+   
+
+    changeImg.appendChild(selectImg);
+    changeImg.appendChild(closebtn);
+    
+
+    document.body.appendChild(changeImg);
+
+ 
+}
+function changeInnerContent(el) {
+   var changeText = document.createElement("div");
+
+    changeText.style.width = "300px";
+    changeText.style.height = "300px";
+    changeText.style.position = "fixed";
+    changeText.style.top = "100px";
+    changeText.style.left = "200px";
+    changeText.id = "changeText";
+    changeText.style.backgroundColor = "rgba(255,255,255,0.8)";
+
+
+
+    var edit = document.createElement("textarea");
+    edit.style.width = "200px";
+
+    edit.style.height = "200px";
+    edit.style.position = "fixed";
+
+
+    edit.value  = el.innerHTML;
+    edit.addEventListener("change", function(){
+      el.innerHTML = edit.value;
+    });
+
+
+    var closebtn = document.createElement("input");
+    closebtn.type = "button";
+    closebtn.value = "close";
+    closebtn.style.position = "absolute";
+
+    closebtn.style.bottom = "10px";
+    closebtn.style.left = "10px";
+    closebtn.addEventListener("click", function() {
+      changeText.parentNode.removeChild(changeText);
+    });
+
+
+
+    changeText.appendChild(closebtn);
+    changeText.appendChild(edit);
+
+    document.body.appendChild(changeText);
+}
 
 function onMouseDown(el) {
   if(el=="[object MouseEvent]") {
