@@ -5,7 +5,6 @@ function clearDefaultEvents () {
   body.onclick = function(event) { };
   body.onmousemove = function(event) { event.preventDefault();};
   body.onmousedown = function(event) {};
-
 }
 clearDefaultEvents();
 
@@ -25,6 +24,7 @@ var currentRigth;
 var editor = document.getElementById("editor");
 var interactingWithChild;
 var interactingWithChild2;
+
 function changeImage(el) {
   var changeImg = document.createElement("form");
 
@@ -47,20 +47,24 @@ function changeImage(el) {
     selectImg.style.position = "fixed";
     selectImg.name= "file";
 
-    /*selectImg.addEventListener("change", function(){
-      el.innerHTML = edit.value;
-    });*/
-
-
     var closebtn = document.createElement("input");
     closebtn.type = "submit";
     closebtn.value = "Upload";
     closebtn.style.position = "absolute";
-
     closebtn.style.bottom = "10px";
     closebtn.style.left = "10px";
-   
-
+    
+    var applybtn = document.createElement("input");
+    applybtn.type = "button";
+    applybtn.value = "apply";
+    applybtn.style.position = "absolute";
+    applybtn.style.bottom = "10px";
+    applybtn.style.left = "140px";
+    applybtn.addEventListener("click", function() {
+    el.src = "/images/newFile.png";
+    });
+      
+    changeImg.appendChild(applybtn);
     changeImg.appendChild(selectImg);
     changeImg.appendChild(closebtn);
     
@@ -99,7 +103,6 @@ function changeInnerContent(el) {
     closebtn.type = "button";
     closebtn.value = "close";
     closebtn.style.position = "absolute";
-
     closebtn.style.bottom = "10px";
     closebtn.style.left = "10px";
     closebtn.addEventListener("click", function() {

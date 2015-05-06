@@ -23,6 +23,37 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.locals.appdata=require("./templatesData.json");
 
+
+var multipart = require('connect-multiparty');
+var multipartMiddleware = multipart();
+var path = require('path'),
+    fs = require('fs');
+
+app.post('/editor', multipartMiddleware, function(req, resp) {
+  var tempPath = req.files.file.path,
+        targetPath = path.resolve('./uploads/image.png');
+    if (path.extname(req.files.file.name).toLowerCase() === '.png') {
+        fs.readFile(req.files.file.path, function (err, data) {
+  // ...
+  var newPath = __dirname + "/public/images/newFile.png";
+  fs.writeFile(newPath, data, function (err) {
+    console.log(newPath);
+  });
+});
+      
+    } else {
+        fs.unlink(tempPath, function () {
+            if (err) throw err;
+            console.error("Only .png files are allowed!");
+        });
+    }
+});
+
+
+
+
+
+
 app.use('/', routes);
 
 // catch 404 and forward to error handler
