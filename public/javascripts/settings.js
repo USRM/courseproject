@@ -9,10 +9,8 @@ var targetProperties = {
 	"news" : ["height", "width","background-color", "borderRadius"],
 	"headermenu" : ["height", "width","background-color", "borderRadius", "innerHTML"],
 	"usernavitem" : ["height", "width","background-color", "borderRadius", "innerHTML"],
-	"newscontainer" : ["height", "width","background-color", "borderRadius"]
-
-	
-
+	"newscontainer" : ["height", "width","background-color", "borderRadius", "padding"],
+	"asidebar": ["height", "width","background-color", "borderRadius", "padding"]
 };
 
 var mapping = {
@@ -403,6 +401,7 @@ function addChangeFeature(formElement ) {
 	changeButton.type = "button";
 	changeButton.style.width = "190px";
 	changeButton.value = "Змінити вигляд";
+	changeButton.style.marginLeft ="10px";
 	changeButton.addEventListener("click", function() {
      	if(document.getElementById("newsEditor") != null) {
         var elem = document.getElementById("newsEditor");
@@ -415,9 +414,11 @@ function addChangeFeature(formElement ) {
 		extraEditor.style.height = "400px";
 		extraEditor.style.position = "fixed";
 		extraEditor.style.top = "100px";
-		extraEditor.style.left = "200px";
+		extraEditor.style.margin ="0 auto";
+		extraEditor.style.left = "50%";
+		extraEditor.style.marginLeft = "-400px";
 		extraEditor.id = "newsEditor";
-		extraEditor.style.backgroundColor = "rgba(255,255,255,0.8)";
+		extraEditor.style.backgroundColor = "rgba(255,255,255,1)";
 		var html = targetElement.innerHTML;
 
 	
@@ -514,13 +515,13 @@ function addChangeFeature(formElement ) {
 		addElement.value ="Добавити";
 		addElement.style.position = "absolute";
 		addElement.style.bottom = "10px";
-		addElement.style.right = "600px";
+		addElement.style.right = "567px";
 		addElement.addEventListener("click", function() {
 			if(options.value=="") {
 				alert("Виберіть тип елементу!");
 			}
 			if(options.value=="Абзац") {
-				var nHTML = "<p>Новий Абзац</p>";
+				var nHTML = "<p ondblclick='changeInnerContent(this)'>Новий Абзац</p>";
 				addedElements.push(nHTML);
 				console.log(addedElements.length);
 			}
@@ -529,21 +530,8 @@ function addChangeFeature(formElement ) {
 			}
 			
 		});
-
-
-		
-		
-
-
-
 		extraEditor.appendChild(addElement);
-
-		
-
         document.body.appendChild(extraEditor);
-
-
-
 	});
 	formElement.appendChild(changeButton);
 }

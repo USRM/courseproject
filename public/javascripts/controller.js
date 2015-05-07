@@ -29,14 +29,15 @@ function changeImage(el) {
   var changeImg = document.createElement("form");
 
     changeImg.style.width = "300px";
-    changeImg.style.height = "300px";
+    changeImg.style.height = "100px";
     changeImg.style.position = "fixed";
-    changeImg.style.top = "100px";
-    changeImg.style.left = "200px";
+    changeImg.style.top = "300px";
+    changeImg.style.left = "50%";
+    changeImg.style.marginLeft = "-150px";
     changeImg.method = "post";
     changeImg.action ="/editor";
     changeImg.enctype = "multipart/form-data";
-    changeImg.style.backgroundColor = "rgba(255,255,255,0.8)";
+    changeImg.style.backgroundColor = "rgba(255,255,255,1)";
 
 
 
@@ -44,7 +45,10 @@ function changeImage(el) {
     selectImg.type = "file";
     selectImg.style.width = "200px";
     selectImg.style.height = "200px";
-    selectImg.style.position = "fixed";
+
+    selectImg.style.position = "absolute";
+    selectImg.style.top = "10px";
+    selectImg.style.right = "50px";
     selectImg.name= "file";
 
     var closebtn = document.createElement("input");
@@ -52,22 +56,33 @@ function changeImage(el) {
     closebtn.value = "Upload";
     closebtn.style.position = "absolute";
     closebtn.style.bottom = "10px";
-    closebtn.style.left = "10px";
+    closebtn.style.left = "119px";
     
     var applybtn = document.createElement("input");
     applybtn.type = "button";
     applybtn.value = "apply";
     applybtn.style.position = "absolute";
     applybtn.style.bottom = "10px";
-    applybtn.style.left = "140px";
+    applybtn.style.left = "183px";
     applybtn.addEventListener("click", function() {
-    el.src = "/images/newFile.png";
+      el.src = "/images/newFile.png";
     });
-      
+    
+    var tclosebtn = document.createElement("input");
+    tclosebtn.type = "button";
+    tclosebtn.value = "Close";
+    tclosebtn.style.position = "absolute";
+    tclosebtn.style.bottom = "10px";
+    tclosebtn.style.left = "248px";
+    tclosebtn.addEventListener("click", function(){
+      changeImg.parentNode.removeChild(changeImg);
+    });
+    
+
     changeImg.appendChild(applybtn);
     changeImg.appendChild(selectImg);
     changeImg.appendChild(closebtn);
-    
+    changeImg.appendChild(tclosebtn);
 
     document.body.appendChild(changeImg);
 
@@ -80,16 +95,17 @@ function changeInnerContent(el) {
     changeText.style.height = "300px";
     changeText.style.position = "fixed";
     changeText.style.top = "100px";
-    changeText.style.left = "200px";
+    changeText.style.left = "50%";
+    changeText.style.marginLeft = "-150px";
     changeText.id = "changeText";
     changeText.style.backgroundColor = "rgba(255,255,255,0.8)";
 
 
 
     var edit = document.createElement("textarea");
-    edit.style.width = "200px";
+    edit.style.width = "300px";
 
-    edit.style.height = "200px";
+    edit.style.height = "250px";
     edit.style.position = "fixed";
 
 

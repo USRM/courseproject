@@ -17,11 +17,33 @@ function adjustMain () {
   }
 
 }
+var borderEx = false;
 window.onkeydown = function () {
 
-
   if (window.event.keyCode == 83) {
+    var divElements = document.getElementsByTagName("div");
+    console.log(divElements.length);
 
+    if(borderEx==true) {
+      for (var i = 0; i <  divElements.length; ++i) {
+        if(divElements[i].id!="settings") { 
+        divElements[i].style.border = "1px dashed black";
+        borderEx = false;
+        }
+      }
+    } else {
+     
+      for (var i = 0; i <  divElements.length; ++i) {
+         if(divElements[i].id!="settings") { 
+        divElements[i].style.border = "none";
+        borderEx = true;
+      }
+    }
+
+    }
+
+} 
+     /*
     if(menuCreated == false && menuVisible == false) {
       var div = document.createElement("div");
       div.id = "mainFrame";
@@ -93,5 +115,7 @@ window.onkeydown = function () {
     if(currentElement != null)
     currentElement.parentNode.removeChild(currentElement);
   }
+}*/
+
 }
 }
