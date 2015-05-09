@@ -44,7 +44,7 @@ function changeImage(el) {
     var selectImg = document.createElement("input");
     selectImg.type = "file";
     selectImg.style.width = "200px";
-    selectImg.style.height = "200px";
+    selectImg.style.height = "50px";
 
     selectImg.style.position = "absolute";
     selectImg.style.top = "10px";
@@ -60,7 +60,7 @@ function changeImage(el) {
     
     var applybtn = document.createElement("input");
     applybtn.type = "button";
-    applybtn.value = "apply";
+    applybtn.value = "Apply";
     applybtn.style.position = "absolute";
     applybtn.style.bottom = "10px";
     applybtn.style.left = "183px";

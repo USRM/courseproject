@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <% include  partials/template/head.ejs %>
+    
     <style>
     @font-face {
     font-family: 'pt_sansregular';
@@ -16,25 +16,42 @@
 }
     header {
       font-weight: normal;
+      padding: 20px;
+      background-color: #767676;
+      font-size: 30px;
+      font-weight: bold;
+      color: #f9f9f9;
+      text-shadow: 2px 2px 8px #000;
+      border: 1px solid black;
+    }
+    footer {
+       font-weight: normal;
+      padding: 30px;
+      background-color: #767676;
+      font-size: 20px;
+      font-weight: bold;
+      color: #f9f9f9;
+      border: 1px solid black;
+      text-shadow: 2px 2px 8px #000;
     }
     body{
-       background-image: url("/images/back.jpg");
-      font-family: 'pt_sansregular';
+       background-color: #EDEDED;
+      font-family: 'pt_sansregular', Arial;
       margin: 0px;
       padding: 0px;
+      width: 100%;
     }
     #options {
-        width: 100%;
-        height: 350px;
-        margin: 0 auto;
-        margin-top: 200px;
-        margin-bottom: 200px;
-    }
+        width: 1200px;
+        height: 180px;
+        margin: 170px auto;
+        }
     input[type="button"] {
-      padding: 50px;
-      background-color: #555555;
-      width: 400px;
-      font-size: 20px;
+      padding: 40px;
+      border: 1px solid black;
+      background-color: #C8C8C8;
+      width: 350px;
+      font-size: 30px;
       margin: 10px;
     }
     </style>
@@ -44,9 +61,10 @@
   
   
   	<div id="options">
-      <a href="/editor"><input type="button" value="Новий макет."></a>
-      <a href="/fromscratch"><input type="button" value="Редагувати існуючий макет."></a>
-      <a href="/fromscratch"><input type="button" value="Інформація"></a>
+      <a href="/fromscratch"><input type="button"  id="edit"style="background-image:url(/images/newButton.svg);background-size:contain;background-repeat:no-repeat;background-position:center"/></a>
+      <a href="/editor"><input type="button"  style="background-image:url(/images/editB.png);background-size:contain;background-repeat:no-repeat;background-position:center"></a>
+      <a><input type="button" onclick="alert('Виконав:Чемерський Олег.')" style="background-image:url(/images/infoB.svg);background-size:contain;background-repeat:no-repeat;background-position:center"></a>
+
     </div>
   
 

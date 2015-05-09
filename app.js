@@ -40,6 +40,7 @@ app.post('/editor', multipartMiddleware, function(req, resp) {
     console.log(newPath);
   });
 });
+        
       
     } else {
         fs.unlink(tempPath, function () {

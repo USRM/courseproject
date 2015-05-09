@@ -1,6 +1,6 @@
 var targetProperties = {
-	"userheader" : ["img", "height", "width", "background-color", "borderRadius"],
-	"userfooter" : ["height", "width", "background-color", "borderRadius", "innerHTML"],
+	"userheader" : ["height", "width", "background-color", "borderRadius"],
+	"userfooter" : ["height", "width", "background-color", "borderRadius","color", "innerHTML"],
 	"usermain" : ["height", "width", "background-color", "borderRadius"],
 	"usernavigation" : ["height", "width", "background-color", "borderRadius"],
 	"userheadernews" : ["height", "width", "background-color", "borderRadius", "color", "padding", "innerHTML"],
@@ -511,11 +511,11 @@ function addChangeFeature(formElement ) {
 
         var addElement = document.createElement("input");
         addElement.type = "button";
-		addElement.style.width = "130px";
+		addElement.style.width = "100px";
 		addElement.value ="Добавити";
 		addElement.style.position = "absolute";
 		addElement.style.bottom = "10px";
-		addElement.style.right = "567px";
+		addElement.style.right = "583px";
 		addElement.addEventListener("click", function() {
 			if(options.value=="") {
 				alert("Виберіть тип елементу!");

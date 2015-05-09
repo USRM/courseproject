@@ -1,9 +1,11 @@
-
+<!DOCTYPE html>
 <html>
 <head>
 <style>
     body {
       font-family: "Calibri";
+      margin: 0px;
+      padding: 0px;
      
     }
 	.contentright {
@@ -29,7 +31,6 @@ h1#headerMenu {
 	height:150px;
 	width:990px;
 	position: relative; 
-	background-image:url(/images/templateLNU/headerImage.png);
 	background-position:left;
 	background-size:contain;
 	background-repeat: no-repeat;
@@ -97,13 +98,16 @@ li {
 .news {
 	overflow: auto;
 }
+
 </style>
 
 <title>From Scratch</title>
 </head>
 <body>
-<div id="editor" style="width:1000px;height:500px">
-<input type="text" list="browsers" id="types"/>
+<div style="background-color:rgb(235, 235, 235);position:absolute;height:250px;width:175px;border:1px solid black">
+	<p>Виберіть елемент:</p>
+	<hr/>
+<input type="text" list="browsers" id="types" style="position:absolute;width:140px;margin-left:4px"/>
 <datalist id="browsers">
   <option value="Шапка">
   <option value="Футер">
@@ -111,8 +115,14 @@ li {
   <option value="Контейнер Новин">
   <option value="Новина">
 </datalist>
+<input type="button" value="+" style="position:absolute;right:2px;" onclick="creat()"/>
+<input type="button" value="створити" onclick="createCustomElement()" style="position:absolute;top:215px;right:10px;"/>
+
+</div>
+
+<div id="editor" style="width:1000px;height:500px">
 </div> 
-<input type="button" value="створити" onclick="createCustomElement()"/>
+
 <script src="/javascripts/settings.js"></script>
 <script src="/javascripts/mainFrameSettings.js"></script>
 <script src="/javascripts/controller.js"></script>
@@ -129,60 +139,17 @@ var dictionary = {
 var datalist = document.getElementById ("browsers");
 var input = document.getElementById ("types");
 
-input.addEventListener ("keyup", function (event) {
-    if (event.which === 13) {
-        if(input.value=="Шапка") {
+ function creat() {
+   
+        
         	var sElement = document.createElement("div");
         	sElement.id = dictionary[input.value];
         	if(document.getElementById("settings")!=null) {
         		document.getElementById("settings").parentNode.removeChild(document.getElementById("settings"));
         	}
         	initSettingsBarContent(sElement,initSettingsBar());
-        }
-        if(input.value=="Футер") {
-        	var sElement = document.createElement("div");
-        	if(document.getElementById("settings")!=null) {
-        		document.getElementById("settings").parentNode.removeChild(document.getElementById("settings"));
-        	}
-
-        	sElement.id = dictionary[input.value];
-        	initSettingsBarContent(sElement,initSettingsBar());
-        }
-        if(input.value=="Навігація") {
-        	var sElement = document.createElement("div");
-        	if(document.getElementById("settings")!=null) {
-        		document.getElementById("settings").parentNode.removeChild(document.getElementById("settings"));
-        	}
-
-        	sElement.id = dictionary[input.value];
-        	console.log(dictionary[input.value]);
-        	initSettingsBarContent(sElement,initSettingsBar());
-        }
-        if(input.value=="Контейнер Новин") {
-        	var sElement = document.createElement("div");
-        	if(document.getElementById("settings")!=null) {
-        		document.getElementById("settings").parentNode.removeChild(document.getElementById("settings"));
-        	}
-
-        	sElement.id = dictionary[input.value];
-        	console.log(dictionary[input.value]);
-        	initSettingsBarContent(sElement,initSettingsBar());
-        }
-        if(input.value=="Новина") {
-        	var sElement = document.createElement("div");
-        	if(document.getElementById("settings")!=null) {
-        		document.getElementById("settings").parentNode.removeChild(document.getElementById("settings"));
-        	}
-
-        	sElement.id = dictionary[input.value];
-        	console.log(dictionary[input.value]);
-        	initSettingsBarContent(sElement,initSettingsBar());
-        }
-
-
-
-    }
-}, false);
+    
+}
 
 function createCustomElement() {
 	var input = document.getElementById ("types");
@@ -204,6 +171,8 @@ function createCustomElement() {
 		eleme.style.width = document.getElementById("width").value;
 		eleme.style.backgroundColor = document.getElementById("background-color").value;
 		eleme.style.borderRadius = document.getElementById("borderRadius").value;
+		eleme.innerHTML = document.getElementById("innerHTML").value;
+		eleme.style.color = document.getElementById("color").value;
 		eleme.style.position ="relative";
 		eleme.addEventListener("mousedown",onMouseDown);
 		document.getElementById("editor").appendChild(eleme);

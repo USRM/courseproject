@@ -110,12 +110,12 @@ window.onkeydown = function () {
       }
 
     } 
-  }
+  }*/
   if(window.event.keyCode == 46) {
     if(currentElement != null)
     currentElement.parentNode.removeChild(currentElement);
   }
-}*/
+
 
 }
 }
